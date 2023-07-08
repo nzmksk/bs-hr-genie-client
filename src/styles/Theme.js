@@ -50,15 +50,15 @@ const theme = responsiveFontSizes(
             "& .MuiOutlinedInput-input": {
               color: "#f5f5f5",
             },
+            "& .Mui-focused": {
+              "& .MuiInputLabel-root": {
+                color: "#f5f5f5",
+              },
+            },
             "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
               {
                 borderColor: "#f5f5f5",
               },
-          },
-          focused: {
-            "& .MuiInputLabel-root": {
-              color: "#f5f5f5",
-            },
           },
         },
       },
