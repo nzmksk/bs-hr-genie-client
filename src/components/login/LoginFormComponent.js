@@ -1,11 +1,17 @@
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import {
   Box,
   Button,
   Container,
+  IconButton,
+  InputAdornment,
   TextField,
   Typography,
   useTheme,
 } from "@mui/material";
+
+import { useToggle } from "../../hooks/hooks.js";
 
 const LoginFormComponent = () => {
   // Styling
@@ -35,6 +41,10 @@ const LoginFormComponent = () => {
     width: "80%",
   };
   const loginText = { alignSelf: "start", fontWeight: 600 };
+  const iconColor = { color: theme.palette.text.main };
+
+  // Logic
+  const [showPassword, togglePassword] = useToggle(false);
 
   return (
     <Container sx={rightContainer}>
@@ -56,7 +66,23 @@ const LoginFormComponent = () => {
         <TextField
           label="Password"
           name="password"
-          type="password"
+          type={showPassword ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="Toggle password visibility"
+                  onClick={togglePassword}
+                >
+                  {showPassword ? (
+                    <VisibilityOff sx={iconColor} />
+                  ) : (
+                    <Visibility sx={iconColor} />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
           required
           fullWidth
         />
