@@ -3,7 +3,7 @@ import { Container, Typography, useTheme } from "@mui/material";
 import logo from "../../assets/logo.png";
 
 const LoginLogoComponent = () => {
-  // Styling
+  // UI
   const theme = useTheme();
   const leftContainer = {
     alignItems: "center",
